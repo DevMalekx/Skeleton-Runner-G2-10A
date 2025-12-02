@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Fredoka:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 270 50% 8%;
+    --foreground: 45 100% 95%;
+
+    --card: 270 40% 12%;
+    --card-foreground: 45 100% 95%;
+
+    --popover: 270 40% 12%;
+    --popover-foreground: 45 100% 95%;
+
+    --primary: 35 100% 55%;
+    --primary-foreground: 270 50% 8%;
+
+    --secondary: 320 80% 55%;
+    --secondary-foreground: 45 100% 95%;
+
+    --muted: 270 30% 18%;
+    --muted-foreground: 270 20% 60%;
+
+    --accent: 175 70% 45%;
+    --accent-foreground: 270 50% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 270 30% 25%;
+    --input: 270 30% 20%;
+    --ring: 35 100% 55%;
+
+    --radius: 0.75rem;
+
+    /* Game-specific colors */
+    --soul-green: 140 80% 50%;
+    --soul-glow: 140 100% 60%;
+    --marigold: 35 100% 55%;
+    --magenta: 320 80% 55%;
+    --teal: 175 70% 45%;
+    --bone: 45 30% 90%;
+    --ground: 30 50% 25%;
+    --sky-dark: 270 50% 12%;
+    --sky-light: 280 40% 18%;
+
+    /* Gradients */
+    --gradient-sky: linear-gradient(180deg, hsl(var(--sky-dark)) 0%, hsl(var(--sky-light)) 50%, hsl(270 30% 22%) 100%);
+    --gradient-soul: radial-gradient(circle, hsl(var(--soul-glow)) 0%, hsl(var(--soul-green)) 50%, transparent 70%);
+    --gradient-button: linear-gradient(135deg, hsl(var(--marigold)) 0%, hsl(var(--secondary)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(270 35% 10%) 100%);
+
+    /* Shadows */
+    --shadow-glow: 0 0 20px hsl(var(--primary) / 0.5);
+    --shadow-soul: 0 0 30px hsl(var(--soul-glow) / 0.8);
+    --shadow-card: 0 10px 40px hsl(270 50% 5% / 0.5);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 270 50% 8%;
+    --foreground: 45 100% 95%;
+    --card: 270 40% 12%;
+    --card-foreground: 45 100% 95%;
+    --popover: 270 40% 12%;
+    --popover-foreground: 45 100% 95%;
+    --primary: 35 100% 55%;
+    --primary-foreground: 270 50% 8%;
+    --secondary: 320 80% 55%;
+    --secondary-foreground: 45 100% 95%;
+    --muted: 270 30% 18%;
+    --muted-foreground: 270 20% 60%;
+    --accent: 175 70% 45%;
+    --accent-foreground: 270 50% 8%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 270 30% 25%;
+    --input: 270 30% 20%;
+    --ring: 35 100% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Fredoka', sans-serif;
+  }
+
+  h1, h2, h3, .game-title {
+    font-family: 'Creepster', cursive;
+  }
+}
+
+@layer utilities {
+  .text-shadow-glow {
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.8), 0 0 30px hsl(var(--primary) / 0.5);
+  }
+
+  .text-shadow-soul {
+    text-shadow: 0 0 10px hsl(var(--soul-glow) / 0.8), 0 0 20px hsl(var(--soul-green) / 0.5);
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-soul-spin {
+    animation: soul-spin 4s linear infinite;
+  }
+
+  .animate-skeleton-idle {
+    animation: skeleton-idle 1s ease-in-out infinite;
+  }
+
+  .bg-papel-picado {
+    background-image: 
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 20px,
+        hsl(var(--primary) / 0.1) 20px,
+        hsl(var(--primary) / 0.1) 22px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 20px,
+        hsl(var(--secondary) / 0.1) 20px,
+        hsl(var(--secondary) / 0.1) 22px
+      );
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    filter: drop-shadow(0 0 10px hsl(var(--soul-glow) / 0.8));
+    transform: scale(1);
+  }
+  50% { 
+    filter: drop-shadow(0 0 20px hsl(var(--soul-glow)));
+    transform: scale(1.1);
+  }
+}
+
+@keyframes soul-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes skeleton-idle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--secondary));
+}
