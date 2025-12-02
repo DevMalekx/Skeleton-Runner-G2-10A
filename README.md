@@ -1,5 +1,5 @@
 # Skeleton-Runner-G2-10A
-                                                                                                     <<< MADE FOR GROUP 3 10A EAIS >>>
+                                                                                                     <<< MADE FOR GROUP 2 10A EAIS >>>
 
 
 
