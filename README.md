@@ -2,7 +2,7 @@
                                                                                                      <<< MADE FOR GROUP 2 10A EAIS >>>
 
 
-
+TO PLAY THE GAME:https://bone-dash-diana.lovable.app
 
 THE GAME FULLY MADE BY MALEK AND THE GROUP HELPERS
 
